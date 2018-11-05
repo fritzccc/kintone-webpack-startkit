@@ -1,27 +1,10 @@
 const path = require('path')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   context: `${__dirname}/src`,
   entry: {
     app: ['babel-polyfill', './main.js']
   },
-  output: {
-    path: `${__dirname}/dist`,
-    filename: '[name].js',
-  },
-  devtool: false,
-  plugins: [
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          warnings: false
-        }
-      },
-      sourceMap: true,
-      parallel: true
-    }),
-  ],
   module: {
     rules: [
       {
